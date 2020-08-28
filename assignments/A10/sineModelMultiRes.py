@@ -77,7 +77,9 @@ def sineModelMultiRes(x, fs, w, N, t, B):
             xpphase = np.append(xpphase, np.take(pphase, non_zeros))
 
         # -----synthesis-----
-        Y = UF.genSpecSines(xpfreq, xpmag, xpphase, Ns, fs)            # generate sines in the spectrum
+        #Y = UF.genSpecSines(xpfreq, xpmag, xpphase, Ns, fs)            # generate sines in the spectrum
+        # Alternative if utilFunctions_C hasn't been successfully compiled
+        Y = UF.genSpecSines_p(xpfreq, xpmag, xpphase, Ns, fs)          # generate sines in the spectrum
         fftbuffer = np.real(ifft(Y))                                   # compute inverse FFT
         yw[:hNs - 1] = fftbuffer[hNs + 1:]                             # undo zero-phase window
         yw[hNs - 1:] = fftbuffer[:hNs + 1]
