@@ -1,7 +1,8 @@
 import numpy as np
 from scipy.signal import blackmanharris, triang
 from scipy.fftpack import ifft
-import math
+import sys, os, math
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../software/models'))
 import dftModel as DFT
 import utilFunctions as UF
 
