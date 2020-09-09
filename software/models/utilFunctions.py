@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.signal import resample, blackmanharris, triang
-from scipy.fftpack import fft, ifft, fftshift
+from scipy.fft import fft, ifft, fftshift
 import math, copy, sys, os
 from scipy.io.wavfile import write, read
 from sys import platform
@@ -103,7 +103,8 @@ def peakDetection(mX, t):
 	returns ploc: peak locations
 	"""
 
-	thresh = np.where(np.greater(mX[1:-1],t), mX[1:-1], 0); # locations above threshold
+#	thresh = np.where(np.greater(mX[1:-1],t), mX[1:-1], 0); # locations above threshold
+	thresh = np.where(mX[1:-1]>t,mX[1:-1], 0)  #addddendum
 	next_minor = np.where(mX[1:-1]>mX[2:], mX[1:-1], 0)     # locations higher than the next one
 	prev_minor = np.where(mX[1:-1]>mX[:-2], mX[1:-1], 0)    # locations higher than the previous one
 	ploc = thresh * next_minor * prev_minor                 # locations fulfilling the three criteria

@@ -3,7 +3,7 @@
 
 import numpy as np
 from scipy.signal import hanning, resample
-from scipy.fftpack import fft, ifft
+from scipy.fft import fft, ifft
 import utilFunctions as UF
 
 def stochasticModelAnal(x, H, N, stocf):

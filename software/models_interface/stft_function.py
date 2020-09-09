@@ -22,7 +22,7 @@ def main(inputFile = '../../sounds/piano.wav', window = 'hamming', M = 1024, N =
 	fs, x = UF.wavread(inputFile)
 
 	# compute analysis window
-	w = get_window(window, M)
+	w = get_window(window, M, M % 2 == 0)
 
 	# compute the magnitude and phase spectrogram
 
@@ -49,7 +49,7 @@ def main(inputFile = '../../sounds/piano.wav', window = 'hamming', M = 1024, N =
 	plt.axis([0, x.size/float(fs), min(x), max(x)])
 	plt.ylabel('amplitude')
 	plt.xlabel('time (sec)')
-	plt.title('input sound: x')
+	plt.title('input sound: x (%i samples)' % x.size)
 
 	# plot magnitude spectrogram
 	plt.subplot(4,1,2)
@@ -79,7 +79,7 @@ def main(inputFile = '../../sounds/piano.wav', window = 'hamming', M = 1024, N =
 	plt.axis([0, y.size/float(fs), min(y), max(y)])
 	plt.ylabel('amplitude')
 	plt.xlabel('time (sec)')
-	plt.title('output sound: y')
+	plt.title('output sound: y (%i samples)' % y.size)
 
 	plt.tight_layout()
 	plt.ion()

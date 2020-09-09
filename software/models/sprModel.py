@@ -3,7 +3,7 @@
 
 import numpy as np
 from scipy.signal import blackmanharris, triang
-from scipy.fftpack import fft, ifft
+from scipy.fft import fft, ifft
 import math
 import dftModel as DFT
 import sineModel as SM

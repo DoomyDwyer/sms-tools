@@ -1,12 +1,15 @@
 *.DS_Store
 *.so
 *.pyc
+*.pyd
 *.o
 *.py~
+venv/
 workspace_dev/*
 workspace/*
 software/models_interface/output_sounds/*.wav
 software/transformations_interface/output_sounds/*.wav
 .ipynb_checkpoints/
 desktop.ini
-
+lectures/**/*.png
+utilFunctions_C/build/*

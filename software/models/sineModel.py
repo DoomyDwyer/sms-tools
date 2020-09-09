@@ -3,7 +3,7 @@
 
 import numpy as np
 from scipy.signal import blackmanharris, triang
-from scipy.fftpack import ifft, fftshift
+from scipy.fft import ifft, fftshift
 import math
 import dftModel as DFT
 import utilFunctions as UF
@@ -218,4 +218,4 @@ def sineModelSynth(tfreq, tmag, tphase, N, H, fs):
 	y = np.delete(y, range(hN))                             # delete half of first window
 	y = np.delete(y, range(y.size-hN, y.size))              # delete half of the last window 
 	return y
-	
+
